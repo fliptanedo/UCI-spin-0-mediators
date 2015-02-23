@@ -1,0 +1,292 @@
+%   This file is based on the the APS files in the REVTeX 4 distribution. Version 4.0 of REVTeX, August 2001, Copyright (c) 2001 The American Physical Society.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed as well as the rest of the prerequisites for REVTeX 4.0
+
+\documentclass[showpacs,preprintnumbers,amsmath,amssymb]{revtex4}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\font\fiverm=cmr5
+%   the stuff below defines \eqalign and \eqalignno in such a
+%   way that they will run on Latex
+\newskip\humongous \humongous=0pt plus 1000pt minus 1000pt
+\def\caja{\mathsurround=0pt}
+\def\eqalign#1{\,\vcenter{\openup1\jot \caja
+    \ialign{\strut \hfil$\displaystyle{##}$&$
+    \displaystyle{{}##}$\hfil\crcr#1\crcr}}\,}
+\newif\ifdtup
+\def\panorama{\global\dtuptrue \openup1\jot \caja
+    \everycr{\noalign{\ifdtup \global\dtupfalse
+    \vskip-\lineskiplimit \vskip\normallineskiplimit
+    \else \penalty\interdisplaylinepenalty \fi}}}
+\def\eqalignno#1{\panorama \tabskip=\humongous
+    \halign to\displaywidth{\hfil$\displaystyle{##}$
+    \tabskip=0pt&$\displaystyle{{}##}$\hfil
+    \tabskip=\humongous&\llap{$##$}\tabskip=0pt
+    \crcr#1\crcr}}
+%   The oldref and fig macros are for formatting
+%   references and figure lists at the end of the paper.
+%   If you type \oldref{1}Dirac, P.A.M. you will get
+%   [1] Dirac, P.A.M.
+%   Same goes for \fig except you get Figure 2.1
+\def\oldrefledge{\hangindent3\parindent}
+\def\oldreffmt#1{\rlap{[#1]} \hbox to 2\parindent{}}
+\def\oldref#1{\par\noindent\oldrefledge \oldreffmt{#1}
+    \ignorespaces}
+\def\figledge{\hangindent=1.25in}
+\def\figfmt#1{\rlap{Figure {#1}} \hbox to 1in{}}
+\def\fig#1{\par\noindent\figledge \figfmt{#1}
+    \ignorespaces}
+%
+%   This defines et al., i.e., e.g., cf., etc.
+\def\ie{\hbox{\it i.e.}{}}  \def\etc{\hbox{\it etc.}{}}
+\def\eg{\hbox{\it e.g.}{}}  \def\cf{\hbox{\it cf.}{}}
+\def\etal{\hbox{\it et al.}}
+\def\dash{\hbox{---}}
+%   common physics symbols
+\def\tr{\mathop{\rm tr}}
+\def\Tr{\mathop{\rm Tr}}
+\def\Im{\mathop{\rm Im}}
+\def\Re{\mathop{\rm Re}}
+\def\bR{\mathop{\bf R}{}}
+\def\bC{\mathop{\bf C}{}}
+%\def\Lie{\mathop{\cal L}}  % fancy L for the Lie derivative
+\def\partder#1#2{{\partial #1\over\partial #2}}
+\def\secder#1#2#3{{\partial^2 #1\over\partial #2 \partial #3}}
+\def\bra#1{\left\langle #1\right|}
+\def\ket#1{\left| #1\right\rangle}
+\def\VEV#1{\left\langle #1\right\rangle}
+\def\gdot#1{\rlap{$#1$}/}
+\def\abs#1{\left| #1\right|}
+\def\pr#1{#1^\prime}
+\def\ltap{\raisebox{-.4ex}{\rlap{$\sim$}} \raisebox{.4ex}{$<$}}
+\def\gtap{\raisebox{-.4ex}{\rlap{$\sim$}} \raisebox{.4ex}{$>$}}
+% \contract is a differential geometry contraction sign _|
+\def\contract{\makebox[1.2em][c]{
+    \mbox{\rule{.6em}{.01truein}\rule{.01truein}{.6em}}}}
+\def\slash#1{#1\!\!\!/\!\,\,}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\half{\frac{1}{2}}
+\def\aeq{\eeq}
+\def\bq{\begin{quote}}
+\def\eq{\end{quote}}
+\def \Msol {M_\odot}
+\def\GeV{\,{\rm GeV}}
+\def\eV {\,{\rm  eV}}
+\def\Mpc{\,{\rm Mpc}}
+\def\pc{\,{\rm pc}}
+\def\half{\frac{1}{2}}
+%% macros to produce the symbols "less than or of order of"
+%% and "greater than or of order of" %
+\def \lta {\mathrel{\vcenter
+     {\hbox{$<$}\nointerlineskip\hbox{$\sim$}}}}
+\def \gta {\mathrel{\vcenter
+     {\hbox{$>$}\nointerlineskip\hbox{$\sim$}}}}
+%% a few convenient (?) abbreviations: %
+\def \endpage {\vfill \eject}
+\def \endline {\hfill \break}
+\def \etal {{\it et al.}\ }
+\relax
+
+%\input math_macros
+%\input prepictex
+%\input pictex
+%\input postpictex
+\newdimen\tdim
+\tdim=\unitlength
+\def\bar{\overline}
+\def\stpltsmbl{\setplotsymbol ({\small .})}
+\def\tarrow{\arrow <8\tdim> [.3,.6]}
+\def\moose#1#2#3{\tarrow from #1 to #2 \plot #2 #3 /}
+\def\mooseb#1#2#3{\tarrow from #3 to #2 \plot #2 #1 /}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textheight=220mm \textwidth=165mm \topmargin=-10mm
+\oddsidemargin=-1mm
+
+
+\usepackage[
+%	pdftitle={},
+%	pdfauthor={},
+	colorlinks=true,
+	citecolor=black,
+	linkcolor=black,
+	urlcolor=blue,
+	hypertexnames=false]{hyperref}
+
+
+\begin{document}
+\setcounter{page}{1}
+\pagestyle{plain}
+
+\Large
+
+\begin{center}
+{\bf MadGraph 5 Model: Spin-0 Mediators}
+\end{center}
+
+\begin{center}
+Anthony DiFranzo, \,
+Philip Tanedo, \,
+Tim M.\ P.\ Tait
+
+\href{mailto:adifranz@uci.edu}{adifranz@uci.edu}, \,
+\href{mailto:flip.tanedo@uci.edu}{flip.tanedo@uci.edu}, \,
+\href{mailto:ttait@uci.edu}{ttait@uci.edu}, \,
+
+{\it Department of Physics \& Astronomy, University of California, Irvine, \textsc{ca} 92697}
+\end{center}
+
+
+\section{Purpose}
+
+These two MadGraph 5 (MG5) \cite{Alwall:2011uj} model files are intended to simulate the production of Dirac fermion dark matter at a collider through a spin-0 mediator. The two models are called:
+\begin{itemize}
+\item {\tt GC\_scalar\_UFO}: scalar mediator model
+\item {\tt GC\_pseudo\_UFO}: pseudoscalar mediator model.
+\end{itemize}
+The models are generated using FeynRules \cite{Alloul:2013bka} and use the Madgraph~5 UFO format \cite{Degrande:2011ua}. If you use these models, please cite \cite{Abdullah:2014lla} where they were originally used for studies of indirect detection with on-shell mediators.
+
+\section{Parameters}
+
+The dark matter particle is a Dirac fermion $\chi$ ({\tt chi}) with antiparticle $\bar{\chi}$ ({\tt chi$\sim$}). A real spin-0 particle $\phi$ ({\tt sc}) mediates interactions with the Standard Model (SM) fermions. Each model introduces 6 new parameters which can be modified in {\tt param\_card.dat}:
+
+\begin{itemize}
+\item {\bf \tt Mchi}: $m_\chi$, mass of the dark matter particle
+\item {\bf \tt Msc}: $m_\phi$, mass of the scalar/pseudoscalar mediator
+\item {\bf \tt gu}: $g_u$, scalar--up-type quark (up, charm, top) scaling
+\item {\bf \tt gd}: $g_d$, scalar--down-type quark (down, strange, bottom) scaling
+\item {\bf \tt gl}: $g_\ell$, scalar--charged lepton scaling
+\item {\bf \tt gchi}: $g_\chi$, scalar--dark matter coupling
+\end{itemize}
+
+The couplings between the mediator and SM fermions is scaled by the fermion mass. Explicitly, we include the following interaction terms:
+
+\begin{align}
+\Delta\mathcal{L}_\text{scalar} 
+&= 
+- g_u \frac{y_u}{\sqrt{2}} \phi \bar{u}u 
+- g_d \frac{y_d}{\sqrt{2}} \phi \bar{d}d 
+- g_\ell \frac{y_\ell}{\sqrt{2}} \phi \bar{\ell}\ell 
+- g_{\chi} \phi \bar{\chi}\chi
+\label{eq:L:scalar}
+\\
+\Delta\mathcal{L}_\text{pseudo} 
+&= 
+- ig_u \frac{y_u}{\sqrt{2}} \phi \bar{u}\gamma^5 u 
+- ig_d \frac{y_d}{\sqrt{2}} \phi \bar{d}\gamma^5 d 
+- ig_\ell \frac{y_\ell}{\sqrt{2}} \phi \bar{\ell}\gamma^5 \ell 
+- ig_{\chi} \phi \bar{\chi}\gamma^5\chi.
+\label{eq:L:pseudo}
+\end{align}
+%
+
+The parameters $g_u$, $g_d$, and $g_\ell$ have been chosen such that when they are set to 1, $\phi$ has the same overall couplings as the Higgs boson to Standard Model fermions. For example, when $g_u = 1$, the coupling of $\phi$ to the up quarks is $\frac{m_{u_i}}{v}$, with $v=246 \GeV$ for $u_i = u,c,t$.
+
+The mediator interacts with gluons and photons through top quark loops. This effective coupling is included in the large top mass limit:
+
+\begin{align}
+\Delta\mathcal{L}_\text{scalar} 
+&=
+-\frac{1}{4} \frac{g_s^2}{4\pi} \frac{g_u}{3\pi v} t\left( \frac{m_h^2}{4m_t^2}\right) G_{\mu \nu}^a G^{\mu \nu a} \phi
+-\frac{1}{4} \frac{e^2}{4\pi} \frac{8 g_u}{9 \pi v} t\left(\frac{m_h^2}{4m_t^2}\right) F_{\mu \nu} F^{\mu \nu} \phi
+\label{eq:L:scalarHEFT}
+\\
+\Delta\mathcal{L}_\text{pseudo} 
+&=
+-\frac{1}{4} \frac{g_s^2}{4\pi} \frac{g_u}{2\pi v} p\left( \frac{m_h^2}{4m_t^2}\right) G_{\mu \nu}^a \tilde{G}^{\mu \nu a} \phi
+-\frac{1}{4} \frac{e^2}{4\pi} \frac{4 g_u}{3\pi v} p\left( \frac{m_h^2}{4m_t^2}\right) F_{\mu \nu} \tilde{F}^{\mu \nu} \phi.
+\label{eq:L:pseudoHEFT}
+\end{align}
+%
+
+The functions $t$ and $p$ are based on the \texttt{HiggsEffectiveTheory} model in FeynRules \cite{HEFT}:
+%
+
+\begin{align}
+t(x)&= 1 + \frac{7}{30}x + \frac{2}{21}x^2 + \frac{26}{525}x^3
+\\
+p(x)&= 1 + \frac{1}{3}x + \frac{8}{45}x^2 + \frac{4}{35}x^3.
+\end{align}
+
+\section{Caveats and Remarks}
+\begin{enumerate}
+
+\item The decay width of the new scalar will change as couplings to fermions are varied. Therefore, whenever couplings or masses are changed in {\tt param\_card.dat}, the width must be recalculated before events are generated. After generating a process in MG5 and producing an output folder, the new decay width of the scalar can be calculated by entering:\\
+
+{\tt ./bin/madevent compute\_widths sc -f}\\
+
+in the output directory of the generated process. This command will calculate the width of {\tt sc}, rewrite the {\tt param\_card.dat} with the updated decay information for the scalar, and exit madevent.
+
+\item The mediator interactions are similar to a light Higgs boson. While gluon fusion is included in this model file, existing implementations in MadGraph for gluon fusion are not valid when the kinematics involve energy scales $E \gtrsim 2m_t$.
+
+\item The mass-proportional couplings in (\ref{eq:L:scalar}--\ref{eq:L:pseudo}) follow from the requirement of electroweak gauge invariance which requires that the coupling goes through the Yukawa interactions. This automatically imposes minimal flavor violation. See Section~6 of~\cite{Abdullah:2014lla} for further discussion and~\cite{Ipek:2014gua} for an example of a complete theory.
+
+
+\end{enumerate}
+
+
+
+\begin{thebibliography}{90}
+
+%\cite{Alwall:2011uj}
+\bibitem{Alwall:2011uj} 
+  J.~Alwall, M.~Herquet, F.~Maltoni, O.~Mattelaer and T.~Stelzer,
+  %``MadGraph 5 : Going Beyond,''
+  JHEP {\bf 1106}, 128 (2011)
+  [arXiv:1106.0522 [hep-ph]].
+  %%CITATION = ARXIV:1106.0522;%%
+  %1293 citations counted in INSPIRE as of 21 Aug 2014
+
+%\cite{Alloul:2013bka}
+\bibitem{Alloul:2013bka} 
+  A.~Alloul, N.~D.~Christensen, C.~Degrande, C.~Duhr and B.~Fuks,
+  %``FeynRules  2.0 - A complete toolbox for tree-level phenomenology,''
+  Comput.\ Phys.\ Commun.\  {\bf 185}, 2250 (2014)
+  [arXiv:1310.1921 [hep-ph]].
+  %%CITATION = ARXIV:1310.1921;%%
+  %83 citations counted in INSPIRE as of 21 Aug 2014
+
+%\cite{Degrande:2011ua}
+\bibitem{Degrande:2011ua} 
+  C.~Degrande, C.~Duhr, B.~Fuks, D.~Grellscheid, O.~Mattelaer and T.~Reiter,
+  %``UFO - The Universal FeynRules Output,''
+  Comput.\ Phys.\ Commun.\  {\bf 183}, 1201 (2012)
+  [arXiv:1108.2040 [hep-ph]].
+  %%CITATION = ARXIV:1108.2040;%%
+  %132 citations counted in INSPIRE as of 21 Aug 2014
+
+%\cite{Abdullah:2014lla}
+\bibitem{Abdullah:2014lla} 
+  M.~Abdullah, A.~DiFranzo, A.~Rajaraman, T.~M.~P.~Tait, P.~Tanedo and A.~M.~Wijangco,
+  %``Hidden On-Shell Mediators for the Galactic Center Gamma-Ray Excess,''
+  Phys.\ Rev.\ D {\bf 90}, 035004 (2014)
+  [arXiv:1404.6528 [hep-ph]].
+  %%CITATION = ARXIV:1404.6528;%%
+  %17 citations counted in INSPIRE as of 21 Aug 2014
+
+\bibitem{HEFT} 
+  Claude Duhr,
+  \texttt{http://feynrules.irmp.ucl.ac.be/wiki/HiggsEffectiveTheory}
+
+%\cite{Ipek:2014gua}
+\bibitem{Ipek:2014gua} 
+  S.~Ipek, D.~McKeen and A.~E.~Nelson,
+  %``A Renormalizable Model for the Galactic Center Gamma Ray Excess from Dark Matter Annihilation,''
+  arXiv:1404.3716 [hep-ph].
+  %%CITATION = ARXIV:1404.3716;%%
+  %20 citations counted in INSPIRE as of 21 Aug 2014
+
+
+
+
+
+\end{thebibliography}
+
+
+\end{document}

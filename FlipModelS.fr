@@ -1,0 +1,78 @@
+M$ModelName = "FlipModelS";
+
+M$Information = {Authors -> {"Flip Tanedo"}, 
+             Version -> "1.0",
+             Date -> "9. 10. 2014",
+             Institutions -> {"UCI"},
+             Emails -> {"flip.tanedo@uci.edu"}
+             };
+             
+M$ClassesDescription = {
+
+    F[6] == {
+        ClassName       -> chi,
+        SelfConjugate   -> False,
+        Indices         -> {},
+        Mass            -> {Mchi,40},
+        Width           -> {Wchi,0},
+        QuantumNumbers  -> {},
+        PropagatorLabel -> "chi",
+        PropagatorType  -> Straight,
+        PropagatorArrow -> Forward,
+        PDG             -> 100, 
+        ParticleName    -> {"chi"},
+        AntiParticleName -> {"chi~"},
+        FullName        -> "DarkMatter"
+    },
+
+    S[4] == {
+        ClassName       -> sc,
+        SelfConjugate   -> True,
+        Mass            -> {Msc, 30},
+        Indices         -> {}, 
+        Width           -> {Wsc,0.1},
+        QuantumNumbers  -> {},
+        PropagatorLabel -> "sc",
+        PropagatorType  -> D,
+        PropagatorArrow -> None,
+        PDG             -> 101,
+        ParticleName    -> "sc",
+        FullName        -> "Mediator"
+    }
+
+}
+
+M$Parameters = {
+    gchi == {
+        ParameterType       -> External,
+        BlockName           -> DMINPUT,
+        ComplexParameter    -> False,
+        Value               -> 1.0,
+        InteractionOrder    -> {MDM,1},
+        Description         -> "DM Yukawa Coupling"
+    },
+    gu == {
+        ParameterType       -> External,
+        BlockName           -> DMINPUT,
+        ComplexParameter    -> False,
+        Value               -> 0.2,
+        InteractionOrder    -> {MSM,1},
+        Description         -> "Mediator coupling to up-type"
+    },
+    gd == {
+        ParameterType       -> External,
+        BlockName           -> DMINPUT,
+        ComplexParameter    -> False,
+        Value               -> 0.2,
+        InteractionOrder    -> {MSM,1},
+        Description         -> "Mediator coupling to down-type"
+    },
+    gl == {
+        ParameterType       -> External,
+        BlockName           -> DMINPUT,
+        ComplexParameter    -> False,
+        Value               -> 0.2,
+        InteractionOrder    -> {MSM,1},
+        Description         -> "Mediator coupling to leptons"
+    }
+}
